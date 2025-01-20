@@ -1,4 +1,4 @@
-#Blackjack Game
+## Blackjack Game
 
 This is a blackjack game created for practice in JavaScript.
 The project was from Scrimba as part of their JavaScript course.
