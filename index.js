@@ -6,13 +6,18 @@ let isAlive = true;
 let message = "";
 let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
+let cardsEl = document.getElementById("cards-el");
 
 console.log(`first card: ${firstCard}`);
 console.log(`second card: ${secondCard}`);
-console.log(`Sum: ${sum}`);
 
 function startGame() {
-    sumEl.textContent = "Sum: "+sum;
+    renderGame();
+}
+
+function renderGame() {
+    sumEl.textContent = "Sum: " + sum;
+    cardsEl.textContent = "Cards: " + firstCard + " " + secondCard;
     if (sum <= 20) {
         message = "Do you want to draw a new card?";
     } else if (sum === 21) {
@@ -23,5 +28,12 @@ function startGame() {
         isAlive = false
     }
     messageEl.textContent = message;
-    return;
 }
+
+function newCard() {
+    console.log("Drawing a new card from the deck.");
+    let card = Math.floor((Math.random() * 10) + 2);
+    sum += card;
+    console.log(`new card: ${card}`);
+    renderGame();
+};
